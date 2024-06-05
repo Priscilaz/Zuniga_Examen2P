@@ -8,6 +8,7 @@ namespace PriscilaZunigaApuntesMaui.Models
 {
     internal class PZAbout
     {
+        //Comienzo
         public string Title => AppInfo.Name;
         public string Version => AppInfo.VersionString;
         public string MoreInfoUrl => "https://aka.ms/maui";
