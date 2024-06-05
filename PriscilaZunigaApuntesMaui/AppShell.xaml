@@ -4,19 +4,44 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:PriscilaZunigaApuntesMaui.Views"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Title="PriscilaZunigaApuntesMaui">
+    
 
-    <TabBar>
+    <Shell.ItemTemplate>
+        
+        <DataTemplate>
+            <HorizontalStackLayout Spacing="20" Padding="25">
+                <Label Text="{Binding Title}"
+                       FontSize="20"
+                       TextColor="DarkMagenta"
+                       FontAttributes="Bold"/>
+                <Image Source="{Binding FlyoutIcon}"
+                       Aspect="AspectFill"
+                       HeightRequest="20"
+                       WidthRequest="20"
+                       HorizontalOptions="End"/>
+
+            </HorizontalStackLayout>
+            
+        </DataTemplate>
+    </Shell.ItemTemplate>
+    
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
             Title="Notes"
             ContentTemplate="{DataTemplate views:PZAllNotesPage}"
-            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
+            Icon="icon_notes.png" />
 
         <ShellContent
             Title="About"
             ContentTemplate="{DataTemplate views:PZAboutPage}"
-            Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />
-    </TabBar>
+            Icon="icon_about.png" />
+
+        <!--<ShellContent
+             Title="Caracteres"
+             ContentTemplate="{DataTemplate views:PZLetras}"
+             Icon="icon_about.png" />-->
+    </FlyoutItem>
 
 </Shell>
